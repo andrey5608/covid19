@@ -26,7 +26,7 @@ The json contains the number of Coronavirus confirmed cases, deaths, and recover
 For example, if you want to use it from a web site:
 
 ```js
-fetch("https://pomber.github.io/covid19/timeseries.json")
+fetch("https://andrey5608.github.io/covid19/timeseries.json")
   .then(response => response.json())
   .then(data => {
     data["Argentina"].forEach(({ date, confirmed, recovered, deaths }) =>
