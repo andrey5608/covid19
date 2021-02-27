@@ -13,7 +13,7 @@ function extract(filepath) {
   const countList = {};
 
   // HACK: CSVs have different date formats
-  const normalDates = dates.map(date => {
+  const normalDates = dates.map((date) => {
     const [month, day, year] = date.split("/");
     const twoDigitsYear = year.slice(-2);
     return `20${twoDigitsYear}-${month}-${day}`;
@@ -41,7 +41,7 @@ function update(dataPath, outputPath) {
   const countries = Object.keys(confirmed);
   const results = {};
 
-  countries.forEach(country => {
+  countries.forEach((country) => {
     // Some country names are different in the recovered dataset
     const recoverdCountry = patchCountryNames[country] || country;
 
@@ -49,7 +49,7 @@ function update(dataPath, outputPath) {
       console.warn(`${recoverdCountry} is missing from the recovered dataset`);
     }
 
-    results[country] = dates.map(date => {
+    results[country] = dates.map((date) => {
       return {
         date,
         confirmed: confirmed[country][date],
@@ -57,7 +57,7 @@ function update(dataPath, outputPath) {
         recovered:
           recovered[recoverdCountry] && recovered[recoverdCountry][date] != null
             ? recovered[recoverdCountry][date]
-            : null
+            : null,
       };
     });
   });
