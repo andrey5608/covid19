@@ -14,6 +14,7 @@ function extract(filepath) {
 
   // HACK: CSVs have different date formats
   const normalDates = dates.map(date => {
+    console.log(date);
     const [month, day] = date.split("/");
     return `2020-${month}-${day}`;
   });
